@@ -1,9 +1,7 @@
-//Falta en todos hacer lo del DOM
-
-
 //1
 function CalculadoraDeEdad(fecha){
-    //no funciona
+    console.clear();
+
     const hoy = new Date();
     const nacimiento = new Date(fecha);
     let edad = hoy.getFullYear() - nacimiento.getFullYear();
@@ -14,76 +12,83 @@ function CalculadoraDeEdad(fecha){
     }
 
     const nombre = prompt("Ingrese su nombre: ");
-    console.log("Hola " + nombre + ", tienes " + edad + " años");
+    console.log("Hola " + nombre + ", tienes " + edad + " anios");
+
 }
 
 //2
-function TirandoFruta(){
+function TirandoFruta(id){
+    console.clear();
+
     const frutas = ["mandarina", "sandia", "naranja", "pomelo", "melon", "uva", "frutilla", "arandanos", "manzana", "ciruela"];
-    let i = 0;
+
+    const resultado = document.getElementById(id);
+    resultado.innerHTML = frutas;
+    
     const fruta = prompt("Ingrese una fruta: ").toLowerCase();
-    while(fruta != frutas[i] && i < frutas.length){
-        i++;
-    };
-    if(i < frutas.length){  
-        console.log("Sí, tenemos " + fruta + "!");
+    if(frutas.includes(fruta)){  
+        resultado.innerHTML += ("<br>Si­, tenemos " + fruta + "!");
     }
     else{
-        console.log("No, no tenemos " + fruta + "!");
+        resultado.innerHTML += ("<br>No, no tenemos " + fruta + "!");
     }
+    
 }
 
 //3
-function ComparandoDatosYTipos(){
-    //falta el D
-
+function ComparandoDatosYTipos(id){
+    console.clear();
+    const resultado = document.getElementById(id);
     //A
-    console.log(10 == '10');
-    
+    resultado.innerHTML = ("Comparar si 10 es igual a '10' con ==/" + (10 == '10'));
+
     //B
-    console.log(10 === '10');
-    //La diferencia que encontramos es que con el triple igual compara no solo el valor, sino también el tipo de dato, y por lo tanto va a dar false.
+    resultado.innerHTML += ("<br>Comparar si 10 es igual a '10' con ===/" + (10 === '10'));
+    //La diferencia que encontramos es que con el triple igual compara no solo el valor, sino tambien el tipo de dato, y por lo tanto va a dar false.
 
     //C
-    console.log(typeof 10.6);
+    resultado.innerHTML += ("<br>¿De qué tipo de dato es 10.6?/" + (typeof 10.6));
 
     //D
-    console.log(true==1);
+    resultado.innerHTML += ("<br>¿Es cierto que para JavaScript true es == 1?/" + (true==1));
     //Es cierto, y de esto podemos interpretar que false == 0, por que compara un valor y no el tipo de dato. O sea que lo que interpreta como lenguaje binario.
 }
 
 //4
-function YoObjeto(){
+function YoObjeto(id){
+    console.clear();
+    const resultado = document.getElementById(id);
+
     const Ciudad = {
         nombre: "Buenos Aires",
         fechaFundacion: 1536,
         poblacion: 3120612,
-        extensión: 203
+        extension: 203
     }
 
-    const valores = Object.values(Ciudad);
-    for(let i=0; i< valores.length; i++){
-        console.log(valores[i]);
-    }
+
+    resultado.innerHTML = Object.keys(Ciudad);
+    resultado.innerHTML += "<br>" + Object.values(Ciudad);
 }
 
 //5
-function DobleDeElementos(numeros){
-    let doble;
-    for(let i = 0; i < numeros.length; i++){
-        doble.push(numeros[i]*2);
-        console.log(doble[i]);
-    }
+function DobleDeElementos(id,numeros){
+    console.clear();
+    const resultado = document.getElementById(id);
+    resultado.innerHTML = numeros.map(numero=>numero*2);
 }
 
 //6
-function TriánguloDeAsteriscos(){
+function TrianguloDeAsteriscos(){
+    console.clear();
+
     //A
     const constante1 = 5;
     for(let i = 1; i <= constante1; i++){
         console.log("*".repeat(i));
     }
 
+    console.log("");
     //B
     const constante2 = 5;
     let j = 1;
@@ -96,63 +101,58 @@ function TriánguloDeAsteriscos(){
 }
 
 //7
-function NombresConA(){
+function NombresConA(id){
+    console.clear();
+
     const nombres = prompt("Ingrese al menos dos nombres separados por una coma: ");
     const nombresConA = nombres.split(',').filter(nombre=>nombre[0] === 'A');
-    resultado.innerHTML = nombresConA;
+    document.getElementById(id).innerHTML = nombresConA;
 }
 
 //8
-function ReemplazarPalabras(){
+function ReemplazarPalabras(id){
+    console.clear();
+
     const cadena = prompt("Ingrese una cadena de texto: ");
     const reemplazar = prompt("Ingrese una palabra de la cadena que quiera reemplazar: ");
     const reemplazo = prompt("Ingrese la palabra por la que quiere reemplazar: ");
 
-    console.log(cadena.replaceAll(reemplazar, reemplazo));
+    document.getElementById(id).innerHTML = cadena.replaceAll(reemplazar, reemplazo);
 }
 
 //9
-function CortarTexto()
+function CortarTexto(id)
 {
+    console.clear();
+
     const cadena = prompt("Ingrese una cadena de texto: ");
     const num = prompt("¿En que posicion quiere cortar la cadena?: ");  
-    console.log(cadena.slice(num));
+    document.getElementById(id).innerHTML = cadena.slice(0,num);
 }
 
 //10
-function StringConSeparador()
+function StringConSeparador(id)
 {
+    console.clear();
+
     const cadena = prompt("Ingrese una cadena de texto donde cada string este separado por una (,): ");
     const cadena2 = cadena.replaceAll(",","-");
-    console.log(cadena2);
+    document.getElementById(id).innerHTML = cadena2;
 }
 
 //11
-function CalculadoraDeRecaudacion(){
-    //no funciona
+function CalculadoraDeRecaudacion(id){
+    console.clear();
+    
     const pedidos = prompt("Ingrese una lista de objetos pedidos junto con sus respectivos totales, separados por coma (ej --> Pizza:15.50, Hamburguesa:8.75, Bebidas:4.25): ");
-    let antes = 0;
     let suma = 0;
 
-    let resultado=pedidos.split(',');
-    for(let i=0;i<resultado;i++){
-        if(a){
-            resultado.slice(resultado[i]);
-        }
-    }
-    /*for(let i = 0; i<pedidos.length; i++){
-        if(pedidos[i] == ':'){
-            pedidos.slice(antes,pedidos[i].indexOf(':'));
-            antes = pedidos[i].indexOf(':');
-        }
-    }
-    antes = 0;
-    for(let i = 0; i<pedidos.length; i++){
-        if(pedidos[i] == ','){
-            suma += pedidos.indexOf(0,',');
-            pedidos.slice(antes,pedidos[i].indexOf(','));
-            antes = pedidos[i].indexOf(',');
-        }
-    }*/
-    console.log(suma);
+    const res = pedidos.split(',');
+
+    res.forEach(re => {
+        const [nombre, precio] = re.split(':');
+        suma += parseFloat(precio);
+    });
+
+    document.getElementById(id).innerHTML = `Total: $${suma.toFixed(2)}`;
 }

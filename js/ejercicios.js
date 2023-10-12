@@ -21,7 +21,6 @@ function TirandoFruta(id){
     console.clear();
 
     const frutas = ["mandarina", "sandia", "naranja", "pomelo", "melon", "uva", "frutilla", "arandanos", "manzana", "ciruela"];
-
     const resultado = document.getElementById(id);
     resultado.innerHTML = frutas;
     
@@ -156,3 +155,6 @@ function CalculadoraDeRecaudacion(id){
 
     document.getElementById(id).innerHTML = `Total: $${suma.toFixed(2)}`;
 }
+
+
+
